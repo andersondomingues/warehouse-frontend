@@ -3,7 +3,6 @@ FROM node:latest AS build
 WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install
-RUN npm run build
+RUN npm run build 
 RUN npm install -g serve
-COPY ./build /app/build
-CMD ["serve", "-s", "/app/build.js"]
+CMD ["serve", "-s", "build"]
