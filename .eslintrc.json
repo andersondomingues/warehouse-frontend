@@ -1,0 +1,60 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "no-unused-vars": "off",
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    "import/no-unresolved": "off",
+    "camelcase": "off",
+    "no-plusplus": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/indent": ["error", 2],
+    "dot-notation": "off",
+    "no-console": "off",
+    "no-shadow": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [".js", ".jsx", ".tsx"] }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/function-component-definition": [
+      0,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ]
+  }
+}

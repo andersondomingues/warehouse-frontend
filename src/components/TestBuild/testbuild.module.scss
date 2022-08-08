@@ -1,0 +1,27 @@
+.testbuild_local {
+  border: 3px dotted red;
+  background-color: yellow;
+  position: absolute;
+  right: 100px;
+  top: 20px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.testbuild_test {
+  border: 3px solid green;
+  background-color: #efe;
+  position: absolute;
+  right: 100px;
+  top: 20px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.testbuild_none {
+  display: none;
+}
