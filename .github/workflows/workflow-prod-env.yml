@@ -34,6 +34,6 @@ jobs:
         ECR_REPOSITORY: warehouse-frontend-prod
         IMAGE_TAG: latest
       run: |
-        docker build --build-arg backend_url=${{ secrets.BACKEND_URL_PROD }} .-t $ECR_REPOSITORY:$IMAGE_TAG . 
+        docker build -t $ECR_REPOSITORY:$IMAGE_TAG --build-arg backend_url=${{ secrets.BACKEND_URL_PROD }} . 
         docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
