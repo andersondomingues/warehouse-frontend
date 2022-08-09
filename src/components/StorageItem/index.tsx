@@ -2,7 +2,7 @@ import { setCookie } from 'nookies';
 import { NavLink, useHistory } from 'react-router-dom';
 import style from './listaprojetoitem.module.scss';
 
-interface ProjetoData {
+interface StorageItemData {
   id: number;
   nome: string;
   cliente: string;
@@ -10,7 +10,7 @@ interface ProjetoData {
 }
 
 interface Props {
-  data: ProjetoData;
+  data: StorageItemData;
 }
 
 const ListaProjetoItem = (props: Props) => {

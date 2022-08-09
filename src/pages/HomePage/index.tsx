@@ -16,6 +16,10 @@ export function HomePage() {
           <h1>Home</h1>
           <p>
             Welcome to Jack&apos;s Warehouse System.
+            <br />
+            backend_url is:
+            {' '}
+            { process.env.backend_url || 'http://localhost:4000' }
           </p>
         </form>
         <br />
