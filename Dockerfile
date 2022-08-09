@@ -1,5 +1,6 @@
 # stage 1: production-ready build
 FROM node:latest AS build
+ENV backend_url ${backend_url}
 WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install
