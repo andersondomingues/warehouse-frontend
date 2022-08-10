@@ -10,12 +10,13 @@ import { Navigator } from '../../components/Navigator';
 import { FormPage } from '../../components/FormPage';
 import { api } from '../../services/api';
 import { LoadingIcon } from '../../components/LoadingIcon';
+import { StorageItem } from '../../components/StorageItem';
 
 interface StorageItemData {
   id: number;
   name: string;
   quantity: string;
-  weigth: string
+  weight: string
 }
 
 export function StoragePage() {
@@ -29,7 +30,7 @@ export function StoragePage() {
     const getStorageItems = async () => {
       const data = {};
 
-      const response: Promise<AxiosResponse<any, any>> = api.post('storage/listAll', data);
+      const response: Promise<AxiosResponse<any, any>> = api.get('getStorageItems', data);
       response.then((resolved) => {
         const items: StorageItemData[] = resolved.data;
         setStorageItems(items);
@@ -60,12 +61,35 @@ export function StoragePage() {
         <br />
         <form>
           <h1>Storage</h1>
-          <button type="button" onClick={handleClick}>Create New Item</button>
+
           <LoadingIcon active={(storageItems.length === 0)} />
-          {storageItems?.map((x: StorageItemData) => (
-            //
-            x
+          { storageItems?.map((x: StorageItemData) => (
+            <StorageItem data={x} />
           ))}
+
+          <br />
+          <br />
+          <button type="button" onClick={handleClick}>Create New Item</button>
+
+          <hr />
+
+        </form>
+        <br />
+        <br />
+        <form>
+          <h1>Truck</h1>
+
+          <LoadingIcon active={(storageItems.length === 0)} />
+          { storageItems?.map((x: StorageItemData) => (
+            <StorageItem data={x} />
+          ))}
+
+          <br />
+          <br />
+          <button type="button" onClick={handleClick}>Create New Item</button>
+
+          <hr />
+
         </form>
         <br />
       </FormPage>

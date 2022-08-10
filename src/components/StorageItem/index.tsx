@@ -1,47 +1,26 @@
 import { setCookie } from 'nookies';
 import { NavLink, useHistory } from 'react-router-dom';
-import style from './listaprojetoitem.module.scss';
+import style from './storageitem.module.scss';
 
 interface StorageItemData {
   id: number;
-  nome: string;
-  cliente: string;
-  status: string
+  name: string;
+  quantity: string;
+  weight: string
 }
 
 interface Props {
   data: StorageItemData;
 }
 
-const ListaProjetoItem = (props: Props) => {
+const StorageItem = (props: Props) => {
   const history = useHistory();
   const { data } = props;
   const {
-    id, nome, cliente, status,
+    id, name, quantity, weight,
   } = data;
-  let choosenStatus = '';
-  if (status === 'Aprovado') {
-    choosenStatus = style.StatusVerde;
-  } else if (status === 'Reprovado') {
-    choosenStatus = style.StatusVermelho;
-  } else {
-    // Aguardando
-    choosenStatus = style.StatusAmarelo;
-  }
 
   const handleClickDetalhes = () => {
-    // Save JWT token in cookie
-    setCookie(undefined, 'nextauth.p', id.toString(), {
-      maxAge: 60 * 60 * 24 * 30, // 30 days,
-      path: '/',
-      sameSite: true,
-    });
-
-    history.push({
-      pathname: '/CotacaoProjeto',
-      // search: `?id=${data.id}`,
-      state: { pid: id },
-    });
   };
 
   return (
@@ -58,20 +37,23 @@ const ListaProjetoItem = (props: Props) => {
             <td style={{ width: '150px' }}>
               <span>Projeto</span>
               <br />
-              {(nome.length === 0) ? '- -' : nome}
+              {(name.length === 0) ? '- -' : name}
             </td>
             <td>
-              <span>Cliente</span>
+              <span>Quantity (in stock)</span>
               <br />
-              {cliente}
+              {(quantity) || '- -'}
+            </td>
+            <td>
+              <span>Weight (g)</span>
+              <br />
+              {(weight) || '- -'}
             </td>
             <td style={{ width: '50px' }}>
-              <span>Status</span>
-              <br />
-              <span className={choosenStatus}>{status}</span>
+              <button type="button" style={{ display: 'table-cell' }} onClick={handleClickDetalhes}>+1</button>
             </td>
             <td style={{ width: '50px' }}>
-              <button type="button" onClick={handleClickDetalhes}>Detalhes</button>
+              <button type="button" style={{ display: 'table-cell' }} onClick={handleClickDetalhes}>-1</button>
             </td>
           </tr>
         </tbody>
@@ -80,4 +62,4 @@ const ListaProjetoItem = (props: Props) => {
   );
 };
 
-export { ListaProjetoItem };
+export { StorageItem };
