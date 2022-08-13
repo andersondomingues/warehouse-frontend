@@ -1,4 +1,4 @@
-name: Build, test, and deploy to prod env.
+name: Deploy to PROD env.
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: Build, test, and deploy to test env.
+name: Deploy to TEST env.
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: sa-east-1 
+        aws-region: sa-east-1
 
     - name: Perform AWS login
       id: login-ecr
@@ -34,7 +34,7 @@ jobs:
         ECR_REPOSITORY: warehouse-frontend-test
         IMAGE_TAG: latest
       run: |
-        docker build -t $ECR_REPOSITORY:$IMAGE_TAG --build-arg backend_url="${{ secrets.BACKEND_URL_TEST }}" .
+        docker build -t $ECR_REPOSITORY:$IMAGE_TAG --build-arg backend_url=${{ secrets.BACKEND_URL_TEST }} . 
         docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
@@ -56,6 +56,3 @@ jobs:
         region: sa-east-1
         deployment_package: script.zip
         
-
-
-
