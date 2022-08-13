@@ -19,7 +19,7 @@ export function HomePage() {
             <br />
             backend_url:
             {' '}
-            { process.env.backend_url || 'http://localhost:8080' }
+            { process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080' }
           </p>
         </form>
         <br />

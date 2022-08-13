@@ -13,8 +13,10 @@
     "axios": "^0.26.1",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "minimist": "^1.2.6",
     "node-sass": "^6.0.0",
     "nookies": "^2.5.2",
+    "process": "^0.11.10",
     "react": "17.0.0",
     "react-cookie": "^4.1.1",
     "react-dom": "17.0.0",
@@ -29,11 +31,11 @@
     "typescript": "^4.6.2"
   },
   "devDependencies": {
-    "@types/react-pdf": "^5.0.9",
     "@types/node": "^16.11.26",
     "@types/nookies": "^2.0.3",
     "@types/react-dom": "^17.0.13",
     "@types/react-modal": "^3.12.0",
+    "@types/react-pdf": "^5.0.9",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
